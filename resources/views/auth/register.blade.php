@@ -69,6 +69,14 @@
                             </div>
                         </div>
                     </form>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <a class="btn btn-danger" href="{{ route('google.login') }}">Continue with Google</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
