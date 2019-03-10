@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\DailyAstro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $today = Carbon::today();
+
+        return view('home')->with([
+            'astros' => DailyAstro::where('day', $today->timestamp)->get(),
+            'today' => $today,
+        ]);
     }
 }

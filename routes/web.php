@@ -11,13 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/astros/{astro}', 'AstroController@show')->middleware('auth')->name('astro.show');
 
 Route::get('/google/login', 'Auth\LoginController@redirectToGoogleProvider')->name('google.login');
 Route::get('/google/callback', 'Auth\LoginController@handleGoogleProviderCallback');
