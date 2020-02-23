@@ -14,6 +14,9 @@ abstract class AbstractParser
     protected function __constract()
     {
         $this->dom = new Dom;
+        $this->dom->setOptions([
+            'cleanupInput' => false,
+        ]);
     }
 
     /**
